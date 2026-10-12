@@ -1,0 +1,20 @@
+class Solution {
+    public String reverseWords(String s) {
+        Stack<String> stack = new Stack<>();
+
+        String[] words = s.trim().split("\\s+");
+
+        for(String word:words){
+            stack.push(word);
+        }
+        String ans="";
+        while(!stack.isEmpty()){
+            ans+=stack.pop();
+
+            if(!stack.isEmpty()){
+                ans+=' ';
+            }
+        }
+        return ans;
+    }
+}
