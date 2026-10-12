@@ -1,0 +1,32 @@
+
+import java.util.HashSet;
+
+class Solution {
+    public int strStr(String haystack, String needle) {
+        HashSet<Character> set1 = new HashSet<>();
+        HashSet<Character> set2 = new HashSet<>();
+
+        for (char ch : haystack.toCharArray()) {
+            set1.add(ch);
+        }
+
+        for (char ch : needle.toCharArray()) {
+            set2.add(ch);
+        }
+
+        if (!set1.containsAll(set2)) {
+            return -1;
+        }
+
+        for (int i = 0; i <= haystack.length() - needle.length(); i++) {
+            if (haystack.substring(i, i + needle.length()).equals(needle)) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+}
+
+
+
